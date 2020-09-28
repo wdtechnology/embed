@@ -11,5 +11,6 @@
   "viewportWidth": 1280,
   "viewportHeight": 1000,
   "projectId": "ou63h6",
-  "animationDistanceThreshold": 2
+  "animationDistanceThreshold": 2,
+  "reporter": "cypress-mochawesome-reporter"
 }

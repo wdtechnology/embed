@@ -56,3 +56,5 @@ node_modules
 
 # tests
 e2e/screenshots
+e2e/snapshots/**/__diff_output__
+cypress/reports/
