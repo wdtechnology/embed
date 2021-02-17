@@ -6,10 +6,11 @@ import { buildCloseButton, buildPopup } from './elements'
 export type Popup = {
   open: () => void
   close: () => void
+  toggle: () => void
   refresh: () => void
 }
 
-export const createPopup = (formId: string, options: PopupOptions): Popup => {
+export const createPopup = (formId: string, options: PopupOptions = {}): Popup => {
   const iframe = createIframe(formId, 'popup', options)
   const popup = buildPopup(iframe)
   const container = options.container || document.body
@@ -26,6 +27,14 @@ export const createPopup = (formId: string, options: PopupOptions): Popup => {
     }
   }
 
+  const toggle = () => {
+    if (!popup.parentNode) {
+      open()
+    } else {
+      close()
+    }
+  }
+
   popup.append(buildCloseButton(close))
 
   const refresh = () => {
@@ -35,6 +44,7 @@ export const createPopup = (formId: string, options: PopupOptions): Popup => {
   return {
     open,
     close,
+    toggle,
     refresh,
   }
 }
